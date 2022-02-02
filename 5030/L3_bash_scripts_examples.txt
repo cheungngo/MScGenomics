@@ -1,0 +1,60 @@
+##### L3 bash scripts examples
+
+### For loop
+
+#!/bin/bash
+for i in $(seq 1 50)
+#for i in `seq 1 50`
+do
+  echo Counting from 1 to 50, now at $i
+done
+
+
+### While loop
+
+#!/bin/bash
+i=5
+while [ $i -le 10 ]
+do
+  echo Counting from 5 to 10, now at $i
+  let i=i+1
+done
+
+
+### Filename as parameter
+
+#!/bin/bash
+# this script checks if files exist
+
+if [ $# != 2 ]
+then 
+  echo "Please specify 2 filenames as arguments"
+else
+
+  if [ -f $1 ]
+  then 
+    echo "$1 exists"
+  else 
+    echo "$1 not found"
+  fi
+
+  if [ -f $2 ]
+  then 
+    echo "$2 exists"
+  else 
+    echo "$2 not found"
+  fi
+
+fi
+
+
+### Functions
+
+#!/bin/bash
+# This script shows an example of bash function.
+
+function plus {
+  let result="$1 + $2"
+  echo $1 + $2 = $result
+}
+plus 3 10
